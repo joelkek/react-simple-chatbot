@@ -5,6 +5,7 @@ import Image from './Image';
 import ImageContainer from './ImageContainer';
 import Loading from '../common/Loading';
 import TextStepContainer from './TextStepContainer';
+import DOMPurify from 'dompurify'
 
 class TextStep extends Component {
   /* istanbul ignore next */
@@ -52,8 +53,9 @@ class TextStep extends Component {
     }
 
     message = message.replace(/{previousValue}/g, previousValue);
+    const sanitizedMessageHash = {__html: DOMPurify.sanitize(message)}
 
-    return message;
+    return (<span dangerouslySetInnerHTML={sanitizedMessageHash} />);
   }
 
   render() {

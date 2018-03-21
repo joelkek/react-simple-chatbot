@@ -17,7 +17,7 @@ const otherFontTheme = {
 const steps = [
   {
     id: '1',
-    message: 'Hello World',
+    message: 'Hello World! <b>This should be in bold!</b>',
     end: true,
   },
 ];
